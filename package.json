@@ -1,0 +1,25 @@
+{
+  "name": "perfi-test",
+  "version": "1.0.0",
+  "description": "perficient test",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "ashish naghate",
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.22",
+    "angular": "^1.7.7",
+    "angular-messages": "^1.7.7",
+    "angular-toastr": "^2.1.1",
+    "angularjs-datepicker": "^2.1.23",
+    "bootstrap": "^3.4.1",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "ngstorage": "^0.3.11"
+  }
+}
