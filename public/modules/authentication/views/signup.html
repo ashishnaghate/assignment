@@ -1,0 +1,282 @@
+<div class="container top-margin">
+    <div class="row">
+        <form name="recordForm" novalidate autocomplete="off" ng-cloak>
+            <div class="body">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-md-offset-5">
+                        <h3> Create Account </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2"> <span class="text-danger">*</span> First Name</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="firstname" ng-model="user.firstname"
+                                placeholder="First Name"  maxlength="50" ng-pattern="/^[a-zA-Z'\s]*$/" required>
+                            <div ng-messages="recordForm.firstname.$error" ng-if="recordForm.firstname.$touched">
+                                <div ng-message="required">
+                                    <p class="text-danger">First Name is required</p>
+                                </div>
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid first name (Alphabets and upto 50 charectars)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2"><span class="text-danger">*</span> Last Name</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="lastname" ng-model="user.lastname"
+                                placeholder="Last Name"  maxlength="50" ng-pattern="/^[a-zA-Z'\s]*$/" required>
+                            <div ng-messages="recordForm.lastname.$error" ng-if="recordForm.lastname.$touched">
+                                <div ng-message="required">
+                                    <p class="text-danger">Last Name is required</p>
+                                </div>
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid last name (Alphabets and upto 50 charectars)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row dob-margin">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">Date of Birth</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <datepicker date-format="dd-MM-yyyy" date-min-limit="maxDate" selector="form-control">
+                                <input  class="form-control" name="dob" ng-model="user.dob" type="text" />
+                            </datepicker>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2"><span class="text-danger">*</span> Email</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="email" ng-model="user.email"
+                                placeholder="Email" ng-pattern="/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]+$)/"
+                                required>
+                            <div ng-messages="recordForm.email.$error" ng-if="recordForm.email.$touched">
+                                <div ng-message="required">
+                                    <p class="text-danger">Email is required</p>
+                                </div>
+                                <div ng-message="pattern || email">
+                                    <p class="text-danger">Please enter the valid email</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2"><span class="text-danger">*</span> Password</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" maxlength="20"
+                                ng-model="user.password" type="password" placeholder="Enter Password"
+                                ng-required="true">
+                            <div ng-messages="recordForm.password.$error" ng-if="recordForm.password.$touched">
+                                <div ng-message="required">
+                                    <p class="text-danger">Password is required</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">Mobile Number</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="mobile_number" ng-model="user.mobile_number" ng-maxlength="10" placeholder="Mobile Number" ng-pattern="/^[0-9]*$/">
+                            <div ng-messages="recordForm.mobile_number.$error" ng-if="recordForm.mobile_number.$touched">
+                                <div ng-message="maxlength">
+                                    <p class="text-danger">Mobile number should be of maximum 10 numbers</p>
+                                </div>
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid mobile number (Number and upto 10 charectars)</p>
+                                </div>
+                            </div>
+                        </div>                                
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">Temporary Address</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <textarea class="form-control" type="text" name="temp_address" ng-model="user.temporary.address"
+                                placeholder="Temporary Address"  maxlength="50" ng-pattern="/^[a-zA-Z0-9,'\s]*$/">
+                            </textarea>
+
+                            <div ng-messages="recordForm.temp_address.$error" ng-if="recordForm.temp_address.$touched">
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid temporary address</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">City</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="temp_city" ng-model="user.temporary.city"
+                                placeholder="City"  maxlength="20" ng-pattern="/^[a-zA-Z'\s]*$/">
+                            <div ng-messages="recordForm.temp_city.$error" ng-if="recordForm.temp_city.$touched">
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid city</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">State</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="temp_state" ng-model="user.temporary.state"
+                                placeholder="State"  maxlength="20" ng-pattern="/^[a-zA-Z'\s]*$/">
+                            <div ng-messages="recordForm.temp_state.$error" ng-if="recordForm.temp_state.$touched">
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid state</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">Pincode</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="temp_pincode" ng-model="user.temporary.pincode"
+                                placeholder="Pincode"  maxlength="20" ng-pattern="/^[0-9'\s]*$/">
+                            <div ng-messages="recordForm.temp_pincode.$error" ng-if="recordForm.temp_pincode.$touched">
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid pincode</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- temp address ends-->
+                
+                <!-- same as temporary address -->
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">Permanent address same as temporary</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="checkbox" type="checkbox" ng-model="sameas" ng-click="sameAsAbove()" />
+                        </div>
+                    </div>
+                </div>
+                <!-- permanent address -->
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">Permanent Address</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <textarea class="form-control" type="text" name="permanent_address" ng-model="user.permanent.address"
+                                placeholder="Permanent Address"  maxlength="50" ng-pattern="/^[a-zA-Z0-9,'\s]*$/">
+                            </textarea>
+                
+                            <div ng-messages="recordForm.permanent_address.$error" ng-if="recordForm.permanent_address.$touched">
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid permanent address</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">City</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="permanent_city" ng-model="user.permanent.city"
+                                placeholder="City"  maxlength="20" ng-pattern="/^[a-zA-Z'\s]*$/">
+                            <div ng-messages="recordForm.permanent_city.$error" ng-if="recordForm.permanent_city.$touched">
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid city</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">State</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="permanent_state" ng-model="user.permanent.state"
+                                placeholder="State"  maxlength="20" ng-pattern="/^[a-zA-Z'\s]*$/">
+                            <div ng-messages="recordForm.permanent_state.$error" ng-if="recordForm.permanent_state.$touched">
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid state</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2">Pincode</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="permanent_pincode" ng-model="user.permanent.pincode"
+                                placeholder="Pincode"  maxlength="6" ng-pattern="/^[0-9'\s]*$/">
+                            <div ng-messages="recordForm.permanent_pincode.$error" ng-if="recordForm.permanent_pincode.$touched">
+                                <div ng-message="pattern">
+                                    <p class="text-danger">Please enter the valid pincode</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- permanent address ends -->
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2"><span class="text-danger">*</span> Security Question</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+
+                            <select class="form-control" name="security_question" ng-options="option.name for option in data.securityQuestions track by option.id"
+                                ng-model="user.security_question"></select>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-md-offset-2"><span class="text-danger">*</span> Answer</div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="answer" ng-model="user.answer"
+                                placeholder="Answer"  maxlength="50" required>
+                            <div ng-messages="recordForm.answer.$error" ng-if="recordForm.answer.$touched">
+                                <div ng-message="required">
+                                    <p class="text-danger">Answer is required</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-md-offset-5">
+                        <button type="submit" class="btn btn-primary" name="signup" ng-disabled="recordForm.$invalid" ng-click="signup(user)">Create Account</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
